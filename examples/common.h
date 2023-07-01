@@ -32,6 +32,8 @@ struct gpt_params {
     int32_t main_gpu                        = 0;   // the GPU that is used for scratch and small tensors
     float   tensor_split[LLAMA_MAX_DEVICES] = {0}; // how split tensors should be distributed across GPUs
     bool    low_vram                        = 0;   // if true, reduce VRAM usage at the cost of performance
+    float   rope_freq_base                  = 10000.0f; // RoPE base frequency
+    float   rope_freq_scale                 = 1.0f;     // RoPE frequency scaling factor
 
     // sampling parameters
     std::unordered_map<llama_token, float> logit_bias; // logit bias for specific tokens
